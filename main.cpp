@@ -11,7 +11,7 @@ int main(){
   // cout << "Version : " << FILESYS_VERSION_MAJOR << "." << FILESYS_VERSION_MINOR <<endl;
   #ifdef USE_FILER
     Filer f ("/Users/mohitmalhotra/Documents/github-actions/test-github-actions/README.md");
-    f.write("Author of this repo is Mohit Malhotra");
+    f.write("This repo is owned by Mohit Malhotra");
     f.read();
   #else
     cout<<"Filer API is not supported"<<endl;
