@@ -1,0 +1,28 @@
+name: Simple Github action
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checking out from repo
+        uses: actions/checkout@v3
+
+      - name: Ensuring permissions
+        run: sudo chmod +x configure.sh build.sh run.sh
+      
+      - name: Configuring cmake
+        run: ./configure.sh
+      
+      - name: Building
+        run: ./build.sh
+
+      - name: Ensuring permissions
+        run: sudo chmod +x out/build/filesys
+
+      - name: Executing
+        run: ./run.sh
